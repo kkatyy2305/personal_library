@@ -2,16 +2,14 @@
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     overflow-x: hidden;
     background-color: #7B9669;
     margin: 0;
     padding: 0;
     width: 100%;
 }
-
-header {
+.page-body{
     background-color: #7B9669;
 }
 

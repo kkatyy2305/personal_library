@@ -138,11 +138,11 @@ async function deleteBook(id) {
     populateCategoryDropdown();
 }
 
-async function markBookAsRead(id) {
+async function updateBookStatus(id, status) {
     const res = await fetch(`${API_BASE_URL}/${id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: "Read" }),
+        body: JSON.stringify({ status }),
     });
 
     if (!res.ok) {
@@ -217,26 +217,22 @@ function createBookCard(book) {
     const footer = document.createElement("div");
     footer.classList.add("book_card-footer");
 
-    const radio = document.createElement("span");
-    radio.classList.add("book_card-radio");
+    const toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.classList.add("book_card-toggle");
     if (book.status === "Read") {
-        radio.classList.add("book_card-radio--active");
+        toggleBtn.classList.add("book_card-toggle--active");
+        toggleBtn.textContent = "Unmark";
+    } else {
+        toggleBtn.textContent = "Mark as read";
     }
 
-    const markLabel = document.createElement("span");
-    markLabel.classList.add("book_card-mark-label");
-    markLabel.textContent = "*Mark as read*";
+    toggleBtn.addEventListener("click", () => {
+        const nextStatus = book.status === "Read" ? "ToRead" : "Read";
+        updateBookStatus(book.id, nextStatus);
+    });
 
-    const clickHandler = () => {
-        if (book.status === "Read") return;
-        markBookAsRead(book.id);
-    };
-
-    radio.addEventListener("click", clickHandler);
-    markLabel.addEventListener("click", clickHandler);
-
-    footer.appendChild(radio);
-    footer.appendChild(markLabel);
+    footer.appendChild(toggleBtn);
 
     // assemble
     card.appendChild(header);
