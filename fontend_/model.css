@@ -1,0 +1,81 @@
+.model {
+    background-color: #BAC8B1;
+    border-color: bisque;
+    border-radius: .3125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25rem;
+    height: auto;
+    padding: 1.25rem 1.8125rem;
+    margin-left: .625rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    margin: 0;
+    display: none;
+}
+
+.inputs {
+    border: none;
+    border-radius: .3125rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.status_text {
+    margin: 0px;
+}
+
+.form {
+    align-items: flex-start;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.cancel_button {
+    border: none;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+.add_button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    font-weight: 600;
+    padding: 5px 17px;
+    margin-left: 10px;
+}
+
+#overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 900;
+    backdrop-filter: blur(3px);
+    display: none;
+}

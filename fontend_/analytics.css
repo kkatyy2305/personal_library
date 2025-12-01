@@ -1,0 +1,25 @@
+main{
+    background-color: #7B9669;
+}
+.counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    background-color: #7B9669;
+    margin: 0 20px;
+}
+
+.numbers{
+    background-color: #BAC8B1;
+    padding: 20px 30px;
+    width: 300px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.numbers p {
+    margin: 0;
+    line-height: 1;
+}

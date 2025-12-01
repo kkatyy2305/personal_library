@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Library Tracker</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="analytics.css">
+    <link rel="stylesheet" href="filters.css">
+    <link rel="stylesheet" href="model.css">
+    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <header>
+        <section class="header">
+            <div class="title">
+                <img src="book_img.jpg" alt="image" class="picture">
+                <div class="title_text">
+                    <h2>My Library</h2>
+                    <p>Track your reading journey</p>
+                </div>
+            </div>
+
+            <div class="title_button">
+                <button type="button" class="add_book_button">+ Add Book</button>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="counters">
+            <div class="numbers">
+                <p> Total: <span id="total_book_count">0</span></p>
+            </div>
+            <div class="numbers">
+                <p> To-Read: <span id="to-read_count">0</span></p>
+            </div>
+            <div class="numbers">
+                <p> Read: <span id="read_count">0</span></p>
+            </div>
+        </section>
+
+
+        <section class="filter_box">
+            <div class="status_box">
+                <h2>Filter by status</h2>
+                <button type="button" class="status_button">All</button>
+                <button type="button" class="status_button">Read</button>
+                <button type="button" class="status_button">To Read</button>
+            </div>
+
+            <div class="status_box">
+                <h2>Filter by category</h2>
+                <select id="category_dropdown" name="category">
+                    <option value="all_categories" class="category_dropdown">All Categories</option>
+                </select>
+            </div>
+        </section>
+
+
+        <div class="book_list" id="book_list"></div>
+
+
+
+
+
+
+
+        <section>
+            <div id="overlay"></div>
+            <div class="model">
+                <div class="text">
+                    <h2>Add a New Book</h2>
+                    <p>Add a book to your library. You can mark it as to-read or already read.</p>
+                </div>
+
+                <form class="form">
+                    <label for="book_title">Title:</label><br>
+                    <input type=text id="book_title" name="book_title" class="inputs" required><br>
+
+                    <label for="book_author">Author:</label><br>
+                    <input type=text id="book_author" name="book_author" class="inputs" required><br>
+
+                    <label for="cover_image">Cover Image URL (optional):</label><br>
+                    <input type=text id="cover_image" name="cover_image" placeholder="https//..." class="inputs"><br>
+                    
+                    <label for="category_input">Category:</label><br>
+                    <input type=text id="category_input" name="category_input" class="inputs" required><br>
+
+
+                    <p class="status_text">Status:</p>
+
+                    <input type="radio" id="to_read_choice" name="status" value="to_read_choice">
+                    <label for="to_read_choice">To Read</label><br>
+
+                    <input type="radio" id="already_read_choice" name="status" value="already_read_choice">
+                    <label for="already_read_choice">Already Read</label><br>
+
+                    <div class="buttons">
+                        <button type="button" class="cancel_button">Cancel</button>
+                        <button type="button" class="add_button" id="add_book_to_list">Add Book</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

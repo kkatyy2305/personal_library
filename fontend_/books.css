@@ -1,0 +1,91 @@
+/* === BOOK LIST LAYOUT === */
+.book_list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: calc(100% - 40px);
+    margin: 20px auto 40px;
+}
+
+/* Individual book card */
+.book_card {
+    background-color: #6C8480;
+    padding: 20px 24px;
+    color: #ffffff;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Top row: category + delete */
+.book_card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.book_card-category-label {
+    font-weight: 600;
+}
+
+.book_card-delete {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+/* Title + author text */
+.book_card-title {
+    font-size: 18px;
+    margin: 4px 0 2px;
+    font-weight: 600;
+}
+
+.book_card-author {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Bottom row: status / mark as read */
+.book_card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 13px;
+}
+
+/* Fake radio circle */
+.book_card-radio {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.book_card-radio--active::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.book_card-mark-label {
+    cursor: pointer;
+}
+
+/* Active filter button look */
+.status_button.active {
+    background-color: #404E3B;
+    color: #ffffff;
+}
