@@ -1,0 +1,57 @@
+.filter_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 20px 0 20px;
+}
+
+.status_box {
+    background-color: #FFFFFF;
+    padding: 20px 20px;
+    width: 700px;
+}
+
+.status_button {
+    color: black;
+    background-color: #E6E6E6;
+    border: none;
+    font-size: large;
+    width: 130px;
+    height: 35px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.status_button.active {
+    background-color: #404E3B;
+    color: #ffffff;
+}
+
+.status_box .category_dropdown {
+    width: 200px;
+    height: 35px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: #E6E6E6;
+    color: black;
+    font-size: large;
+    margin-top: 10px;
+    padding: 0 36px 0 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #333 50%), linear-gradient(135deg, #333 50%, transparent 50%);
+    background-position: right 16px center, right 10px center;
+    background-size: 10px 6px, 10px 6px;
+    background-repeat: no-repeat;
+    line-height: 35px;
+    vertical-align: middle;
+}
+
+.status_box .category_dropdown:hover,
+.status_box .category_dropdown:focus {
+    background-color: #dcdcdc;
+    border-color: #b5b5b5;
+    outline: none;
+}

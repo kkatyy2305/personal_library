@@ -188,13 +188,13 @@ function createBookCard(book) {
     card.classList.add("book_card");
     card.dataset.id = book.id;
 
-    // header
+    // first row: category left, delete right
     const header = document.createElement("div");
     header.classList.add("book_card-header");
 
     const categorySpan = document.createElement("span");
     categorySpan.classList.add("book_card-category-label");
-    categorySpan.textContent = `Category`;
+    categorySpan.textContent = book.category || "Uncategorized";
 
     const deleteSpan = document.createElement("span");
     deleteSpan.classList.add("book_card-delete");
@@ -204,18 +204,36 @@ function createBookCard(book) {
     header.appendChild(categorySpan);
     header.appendChild(deleteSpan);
 
-    // middle: title + author
-    const titleEl = document.createElement("h3");
-    titleEl.classList.add("book_card-title");
-    titleEl.textContent = book.title;
+    // second row: cover image + details
+    const contentRow = document.createElement("div");
+    contentRow.classList.add("book_card-content");
 
-    const authorEl = document.createElement("p");
-    authorEl.classList.add("book_card-author");
-    authorEl.textContent = book.author;
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("book_card-image-container");
 
-    // footer: mark as read
-    const footer = document.createElement("div");
-    footer.classList.add("book_card-footer");
+    if (book.coverImageUrl) {
+        const coverImg = document.createElement("img");
+        coverImg.classList.add("book_card-image");
+        coverImg.src = book.coverImageUrl;
+        coverImg.alt = `${book.title} cover`;
+        imageContainer.appendChild(coverImg);
+    } else {
+        const placeholder = document.createElement("div");
+        placeholder.classList.add("book_card-image-placeholder");
+        placeholder.textContent = "No cover";
+        imageContainer.appendChild(placeholder);
+    }
+
+    const detailsContainer = document.createElement("div");
+    detailsContainer.classList.add("book_card-details");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add("book_card-title");
+    titleDiv.textContent = book.title;
+
+    const authorDiv = document.createElement("div");
+    authorDiv.classList.add("book_card-author");
+    authorDiv.textContent = book.author;
 
     const toggleBtn = document.createElement("button");
     toggleBtn.type = "button";
@@ -232,14 +250,20 @@ function createBookCard(book) {
         updateBookStatus(book.id, nextStatus);
     });
 
-    footer.appendChild(toggleBtn);
+    const actionDiv = document.createElement("div");
+    actionDiv.classList.add("book_card-action");
+    actionDiv.appendChild(toggleBtn);
+
+    detailsContainer.appendChild(titleDiv);
+    detailsContainer.appendChild(authorDiv);
+    detailsContainer.appendChild(actionDiv);
+
+    contentRow.appendChild(imageContainer);
+    contentRow.appendChild(detailsContainer);
 
     // assemble
     card.appendChild(header);
-    card.appendChild(titleEl);
-    card.appendChild(authorEl);
-    footer.style.marginTop = "16px";
-    card.appendChild(footer);
+    card.appendChild(contentRow);
 
     return card;
 }
